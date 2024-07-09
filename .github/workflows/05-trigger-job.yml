@@ -1,0 +1,39 @@
+name: Manually trigger an Azure Machine Learning job in two environments (dev and prod)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  experiment:
+    runs-on: ubuntu-latest
+    environment:
+      name: development
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Submit an Azure Machine Learning job
+      run: az ml job create --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
+  production:
+    needs: experiment
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+    steps:
+    - name: Check out repo
+      uses: actions/checkout@main
+    - name: Install az ml extension
+      run: az extension add -n ml -y
+    - name: Azure login
+      uses: azure/login@v1
+      with:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
+    - name: Submit an Azure Machine Learning job
+      run: az ml job create --file src/job_prod.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial --stream
+
+
