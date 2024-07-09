@@ -1,0 +1,16 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
+code: model
+command: >-
+  python train.py
+  --training_data ${{inputs.training_data}}
+  --reg_rate ${{inputs.reg_rate}}
+inputs:
+  training_data: 
+    path: azureml:diabetes-prod-folder:1
+    type: uri_folder
+    mode: ro_mount 
+  reg_rate: 0.001
+environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
+compute: azureml:sacmi-mlops-cluster
+experiment_name: diabetes-training-example-prod
+description: A training job to train a diabetes model in production
