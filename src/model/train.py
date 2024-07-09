@@ -1,8 +1,7 @@
 # Import libraries
-
 import argparse
 import mlflow
-import mlflow.sklearn 
+import mlflow.sklearn
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
@@ -81,7 +80,7 @@ def evaluate(logistic, X_test, y_test):
     y_hat = logistic.predict(X_test)
     acc = np.average(y_hat == y_test)
     mlflow.log_metric("accuracy", acc)
-    # roc auc score 
+    # roc auc score
     y_scores = logistic.predict_proba(X_test)
     roc_auc = roc_auc_score(y_test, y_scores[:, 1])
     mlflow.log_metric("roc_auc", roc_auc)
