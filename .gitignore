@@ -101,6 +101,7 @@ celerybeat.pid
 
 .vscode
 mlruns/
+
 # SageMath parsed files
 *.sage.py
 
