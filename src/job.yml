@@ -11,6 +11,6 @@ inputs:
     mode: ro_mount 
   reg_rate: 0.01
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
-compute: azureml:sacmi-compute-instance
+compute: azureml:sacmi-mlops-cluster
 experiment_name: diabetes-training-example
 description: A training job to train a diabetes model
