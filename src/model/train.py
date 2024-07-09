@@ -53,7 +53,7 @@ def main(args):
     logistic = train_model(args.reg_rate, X_train, y_train)
     # evaluate model
     evaluate(logistic, X_test, y_test)
-    # stop logging 
+    # stop logging
     mlflow.end_run()
 
 
