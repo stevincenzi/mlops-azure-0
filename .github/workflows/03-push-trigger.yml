@@ -1,4 +1,4 @@
-name: Trigger a workflow on push to main 
+name: Trigger a workflow on push to main  
 
 on:
   push:
@@ -12,3 +12,4 @@ jobs:
     - name: placeholder_echo
       run: |
         echo "This is a placeholder job to trigger a workflow on push to main"
+  

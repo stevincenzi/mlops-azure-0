@@ -1,6 +1,7 @@
 [flake8]
 ignore = 
     W504,
+    W291,
     C901,
     E41,
     E722,
