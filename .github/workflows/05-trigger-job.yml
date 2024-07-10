@@ -19,6 +19,8 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Submit an Azure Machine Learning job
       run: az ml job create --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
+    - name: register the model
+      run: az ml model create --name diabetes-mlflow-model-dev --version 1 --path runs:/$RUN_ID/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
   production:
     needs: experiment
     runs-on: ubuntu-latest
@@ -35,5 +37,13 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Submit an Azure Machine Learning job
       run: az ml job create --file src/job_prod.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial --stream
+    # - name: register the model
+    #   run: az ml model create --name diabetes-mlflow-model --version 1 --path runs:/$RUN_ID/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
+    # - name: create an endpoint 
+    #   run: az ml online-endpoint create --name diabetes-mlflow -f src/create-endpoint.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
+    # - name: deploy a model to an endpoint
+    #   run: 
+
+
 
 
