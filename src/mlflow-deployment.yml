@@ -2,7 +2,7 @@ $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.sch
 name: mlflow-deployment-tutorial
 endpoint_name: mlflow-endpoint-tutorial
 model:
-  name: mlflow-diabetes-prod
+  name: mlflow-diabetes-prod-2
   version: 1
   path: src/model
   type: mlflow_model
