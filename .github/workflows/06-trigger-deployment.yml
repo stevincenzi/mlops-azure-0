@@ -19,15 +19,10 @@ jobs:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: register the model
       run: az ml model create --name mlflow-diabetes-dev-registration --version 1 --type mlflow_model --path azureml://jobs/mlflow-diabetes-dev/outputs/artifacts/paths/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
-    - name: creating the endpoint name 
-      run: |
-        ENDPOINT_SUFIX=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w ${1:-5} | head -n 1)
-        ENDPOINT_NAME="sacmi-mlops-endpoint-dev-$ENDPOINT_SUFIX"
-        echo $ENDPOINT_NAME
     - name: create an endpoint 
-      run: az ml online-endpoint create -n $ENDPOINT_NAME -f src/create-endpoint.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
+      run: az ml online-endpoint create -n sacmi-mlops-endpoint-dev -f src/create-endpoint.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
     - name: deploy a model to an endpoint
-      run: az ml online-deployment create --endpoint-name $ENDPOINT_NAME  -f src/mlflow-deployment.yml --all-traffic --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
+      run: az ml online-deployment create --endpoint-name sacmi-mlops-endpoint-dev  -f src/mlflow-deployment.yml --all-traffic --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
 
 
 
