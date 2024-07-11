@@ -12,5 +12,5 @@ inputs:
   reg_rate: 0.001
 environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 compute: azureml:sacmi-mlops-cluster
-experiment_name: diabetes-training-example
+experiment_name: diabetes-training-dev
 description: A training job to train a diabetes model

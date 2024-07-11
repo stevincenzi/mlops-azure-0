@@ -1,10 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
-name: mlflow-deployment-tutorial
-endpoint_name: mlflow-endpoint-tutorial
-model:
-  name: mlflow-diabetes-prod-2
-  version: 1
-  path: src/model
-  type: mlflow_model
-instance_type: Standard_F4s_v2
+name: default
+endpoint_name: sacmi-mlops-endpoint-dev
+model: azureml://mlflow-diabetes-dev-registration@latest
+instance_type: Standard_DS2_v2
 instance_count: 1
