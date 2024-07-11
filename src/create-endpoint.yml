@@ -1,3 +1,3 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
-name: sacmi-mlops-tutorial-prod
+name: sacmi-mlops-endpoint-dev
 auth_mode: key
