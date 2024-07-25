@@ -16,6 +16,6 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Submit an Azure Machine Learning job
-      run: az ml job create --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
+      run: az ml job create --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v2
 
 
