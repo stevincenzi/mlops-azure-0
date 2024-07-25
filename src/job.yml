@@ -10,7 +10,8 @@ inputs:
     type: uri_folder
     mode: ro_mount 
   reg_rate: 0.001
-environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
+environment: azureml://registries/azureml/environment/AzureML-sklearn-1.0/labels/latest
+# azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest    azureml://registries/azureml/environment/<curated-environment-name>/labels/latest
 compute: azureml:sacmi-mlops-cluster
 experiment_name: diabetes-training-dev
 description: A training job to train a diabetes model
