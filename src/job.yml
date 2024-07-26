@@ -14,5 +14,4 @@ environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
 # azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest    azureml://registries/azureml/environment/<curated-environment-name>/labels/latest
 compute: azureml:sacmi-mlops-cluster
 experiment_name: diabetes-training-dev
-name: mlflow-diabetes-dev
 description: A training job to train a diabetes model
