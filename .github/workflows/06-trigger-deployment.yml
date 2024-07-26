@@ -20,9 +20,9 @@ jobs:
     - name: register the model
       run: az ml model create --name mlflow-diabetes-prod-registration --type mlflow_model --path azureml://jobs/mlflow-diabetes-prod/outputs/artifacts/paths/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
     - name: create an endpoint 
-      run: az ml online-endpoint update -n sacmi-mlops-endpoint-prod -f src/create-endpoint.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
+      run: az ml online-endpoint create -n sacmi-mlops-endpoint-prod-v2 -f src/create-endpoint.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
     - name: deploy a model to an endpoint
-      run: az ml online-deployment create --endpoint-name sacmi-mlops-endpoint-prod  -f src/mlflow-deployment.yml --all-traffic --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
+      run: az ml online-deployment create --endpoint-name sacmi-mlops-endpoint-prod-v2  -f src/mlflow-deployment.yml --all-traffic --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
 
 
 

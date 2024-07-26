@@ -12,6 +12,6 @@ inputs:
   reg_rate: 0.001
 environment: azureml://registries/azureml/environments/sklearn-1.5/versions/2
 compute: azureml:sacmi-mlops-cluster
-experiment_name: diabetes-training-example-prod
+experiment_name: diabetes-training-prod
 display_name: mlflow-diabetes-prod
 description: A training job to train a diabetes model in production
