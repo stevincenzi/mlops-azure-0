@@ -18,10 +18,10 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Submit an Azure Machine Learning job
-      run: az ml job create --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v2
-      # run: az ml job create --name mlflow-diabetes-dev --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v2
+      run: az ml job create --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
+      # run: az ml job create --name mlflow-diabetes-dev --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
     # - name: register the model
-    #   run: az ml model create --name mlflow-diabetes-dev-registration --version 1 --type mlflow_model --path azureml://jobs/mlflow-diabetes-dev/outputs/artifacts/paths/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v2
+    #   run: az ml model create --name mlflow-diabetes-dev-registration --version 1 --type mlflow_model --path azureml://jobs/mlflow-diabetes-dev/outputs/artifacts/paths/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
 
   production:
     needs: experiment
@@ -38,11 +38,11 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Submit an Azure Machine Learning job
-      run: az ml job create --name mlflow-diabetes-prod --file src/job_prod.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v2 --stream
+      run: az ml job create --name mlflow-diabetes-prod --file src/job_prod.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3 --stream
     # - name: register the model
-    #   run: az ml model create --name diabetes-mlflow-model --version 1 --path runs:/$RUN_ID/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v2
+    #   run: az ml model create --name diabetes-mlflow-model --version 1 --path runs:/$RUN_ID/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
     # - name: create an endpoint 
-    #   run: az ml online-endpoint create --name sacmi-mlops-tutorial-v2-prod -f src/create-endpoint.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v2
+    #   run: az ml online-endpoint create --name sacmi-mlops-tutorial-v3-prod -f src/create-endpoint.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
     # - name: deploy a model to an endpoint
     #   run: 
 
