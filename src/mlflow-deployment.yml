@@ -1,6 +1,6 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
 name: default
-endpoint_name: sacmi-mlops-endpoint-dev
+endpoint_name: sacmi-mlops-endpoint-prod
 model: azureml:mlflow-diabetes-prod-registration@latest
 instance_type: Standard_DS2_v2
 instance_count: 1
