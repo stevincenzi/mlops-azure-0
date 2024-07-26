@@ -18,7 +18,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: Submit an Azure Machine Learning job
-      run: az ml job create --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial --name mlflow-diabetes-dev --debug
+      run: az ml job create --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial --debug
       # run: az ml job create --name mlflow-diabetes-dev --file src/job.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
     # - name: register the model
     #   run: az ml model create --name mlflow-diabetes-dev-registration --version 1 --type mlflow_model --path azureml://jobs/mlflow-diabetes-dev/outputs/artifacts/paths/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial
