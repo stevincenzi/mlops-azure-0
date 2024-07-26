@@ -18,7 +18,7 @@ jobs:
       with:
         creds: ${{secrets.AZURE_CREDENTIALS}}
     - name: register the model
-      run: az ml model create --name mlflow-diabetes-dev-registration --type mlflow_model --path azureml://jobs/mlflow-diabetes-dev/outputs/artifacts/paths/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
+      run: az ml model create --name mlflow-diabetes-prod-registration --type mlflow_model --path azureml://jobs/mlflow-diabetes-prod/outputs/artifacts/paths/model/ --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
     - name: create an endpoint 
       run: az ml online-endpoint create -n sacmi-mlops-endpoint-dev -f src/create-endpoint.yml --resource-group llm-ticketing --workspace-name sacmi-mlops-tutorial-v3
     - name: deploy a model to an endpoint
