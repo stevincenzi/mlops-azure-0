@@ -10,7 +10,7 @@ inputs:
     type: uri_folder
     mode: ro_mount 
   reg_rate: 0.001
-environment: azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest
+environment: azureml://registries/azureml/environments/sklearn-1.5/versions/2
 # azureml:AzureML-sklearn-0.24-ubuntu18.04-py37-cpu@latest    azureml://registries/azureml/environment/<curated-environment-name>/labels/latest
 compute: azureml:sacmi-mlops-cluster
 experiment_name: diabetes-training-dev
